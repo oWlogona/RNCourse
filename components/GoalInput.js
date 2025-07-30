@@ -16,8 +16,10 @@ function GoalInput(props) {
   }
 
   function addGoalHandler() {
-    props.onAddGoal(enteredGoalText);
-    setEnteredGoalText("");
+    if (enteredGoalText.length !== 0) {
+      props.onAddGoal(enteredGoalText);
+      setEnteredGoalText("");
+    }
   }
 
   return (
@@ -53,8 +55,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    padding: 16,
-    backgroundColor: "#311b6b",
+    padding: 24,
+    backgroundColor: "#1c1247",
   },
   image: {
     width: 100,
@@ -62,20 +64,29 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   textInput: {
-    borderWidth: 1,
-    borderColor: "#e4d0ff",
-    backgroundColor: "#e4d0ff",
+    borderWidth: 0,
+    backgroundColor: "#fff",
     color: "#120438",
-    borderRadius: 6,
+    borderRadius: 12,
     width: "100%",
     padding: 16,
-  },
-  buttonContainer: {
-    marginTop: 16,
-    flexDirection: "row",
+    fontSize: 16,
+    elevation: 4,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
   },
   button: {
-    width: 100,
+    flex: 1,
     marginHorizontal: 8,
+    overflow: "hidden",
+    borderRadius: 12,
+  },
+  buttonContainer: {
+    marginTop: 20,
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
   },
 });

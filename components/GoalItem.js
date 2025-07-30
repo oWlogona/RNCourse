@@ -18,15 +18,22 @@ export default GoalItem;
 
 const styles = StyleSheet.create({
   goalItem: {
-    margin: 8,
-    borderRadius: 6,
-    backgroundColor: "#5e0acc",
-  },
-  pressedItem: {
-    opacity: 0.5,
+    marginVertical: 8,
+    borderRadius: 10,
+    backgroundColor: "#2d1e70",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3,
   },
   goalText: {
-    color: "white",
-    padding: 8,
+    color: "#fefefe",
+    padding: 16,
+    fontSize: 16,
+    fontWeight: "500",
+  },
+  pressedItem: {
+    opacity: 0.6,
   },
 });

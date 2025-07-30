@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { StyleSheet, View, FlatList, Button } from "react-native";
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import { StatusBar } from "expo-status-bar";
 
 import GoalItem from "./components/GoalItem";
@@ -35,11 +41,12 @@ export default function App() {
     <>
       <StatusBar style="light" />
       <View style={styles.appContainer}>
-        <Button
-          title="Add New Goal"
-          color="#a065ec"
+        <TouchableOpacity
+          style={styles.addButton}
           onPress={startAddGoalHandler}
-        />
+        >
+          <Text style={styles.addButtonText}>+ Add New Goal</Text>
+        </TouchableOpacity>
         <GoalInput
           visible={modalIsVisible}
           onAddGoal={addGoalHandler}
@@ -77,5 +84,23 @@ const styles = StyleSheet.create({
   },
   goalsContainer: {
     flex: 5,
+  },
+  addButton: {
+    backgroundColor: "#9b5de5",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 30,
+    alignSelf: "center",
+    marginVertical: 16,
+    elevation: 4, // Android тінь
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+  },
+  addButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
